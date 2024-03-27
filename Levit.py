@@ -64,7 +64,9 @@ labels = nx.get_edge_attributes(graph, 'weight')
 nx.draw_networkx_edge_labels(graph, pos, edge_labels=labels)
 
 start_node = 'A'
+start_time = time.time()
 shortest_paths = levit(graph, start_node)
+print("--- {0} ms ---".format(round((time.time() - start_time) * 1000)))
 for node, distance in shortest_paths.items():
     print(f'Кратчайший путь из {start_node} в {node}: {distance}')
 
